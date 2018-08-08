@@ -1,0 +1,39 @@
+.img-header {
+    display: inline-block; 
+	padding: 10px;
+}
+
+.column {
+    float: left;
+}
+
+#icons-div {
+	width: 75%;
+}
+
+#addbutton-div {
+	width: 25%;
+	
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.button,  #btn-addbtn {
+	background-color: #008080;
+	color: white;
+	border-radius: 10px;
+}
+
+.button:focus  {
+    background:olive;
+}
+
+#addbutton-div{ 
+     margin-left: auto;
+     display:block;
+     float:none;
+}

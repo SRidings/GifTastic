@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <title>Giftastic</title>
+    </head>
+    <body>
+        <div id="buttons-div"></div>
+		<div class="row">
+		    <div id="icons-div" class="column"></div>
+		    <div id="addbutton-div" class="column">
+			    <label for="txt-sport">Add sport</label><br><br>
+			    <input type="text" id="txt-sport" value="" size="45"/><br><br>
+			    <input type="button" id = "btn-addbtn" value="Submit" onclick="addTopic()"/>
+	        </div>
+		</div>
+    </body>
+	<script>
+		    var limit = 10;           
+			var topics = ["football", "baseball", "soccer", "chess", "checkers"];
+
+			var retrievedTopicsFromLocalStorage = JSON.parse(localStorage.getItem("topics"));
+			
+			if (retrievedTopicsFromLocalStorage !== null) 
+			{ 
+			    topics = retrievedTopicsFromLocalStorage;
+			}
+			
+			$.each(topics, function(i, topic) 
+			{
+			    addButton(topic);               
+			});
+			
+			function addButton(topic) 
+			{
+			
+			    var btn = $('<input type="button" class="button" value="' + topic + '"/>');
+				
+				btn.click(function() 
+				{
+				
+				$("#icons-div").children().detach();
+
+				    var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV&limit=" + limit);
+					xhr.done(function(data) {
+					
+                        $.each(data.data, function(i, res) 
+                        {
+						
+						    var div = $('<div class="img-header"><h4>Rating: ' + res.rating + '</h4></div>');
+						    var icon = $('<img src="' + res.images.fixed_height_still.url + '" alt="icon" />');
+							var gif = $('<img src="' + res.images.fixed_height.url + '" alt="icon" />');														
+							
+							icon.click(function() 
+							{
+							
+							    div.children().eq(1).detach();
+								div.append(gif);
+							});
+							gif.click(function() 
+							{
+							
+							    div.children().eq(1).detach();
+								div.append(icon);
+							});
+							
+							div.append(icon);
+							$("#icons-div").append(div);
+                        });											                           						
+					});
+				});
+				$("#buttons-div").append(btn);
+			}
+			
+			function addTopic() 
+			{
+			    
+				var topic = $("#txt-sport").val().trim();
+				if (topic === "") 
+				{
+				    return;
+				}
+				$("#txt-sport").val("");
+				topics.push(topic);
+				localStorage.setItem("topics", JSON.stringify(topics));
+				addButton(topic);
+			}
+
+    </script>
+</html>
