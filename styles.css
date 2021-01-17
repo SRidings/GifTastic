@@ -28,6 +28,13 @@
 	border-radius: 10px;
 }
 
+
+.button,  #btn-addbtn2 {
+	background-color: #008080;
+	color: white;
+	border-radius: 10px;
+}
+
 .button:focus  {
     background:olive;
 }
