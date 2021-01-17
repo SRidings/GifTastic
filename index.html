@@ -15,7 +15,7 @@
 			    <label for="txt-sport">Add sport</label><br><br>
 			    <input type="text" id="txt-sport" value="" size="45"/><br><br>
 			    <input type="button" id = "btn-addbtn" value="Submit" onclick="addTopic()"/>
-			    <input type="button" id = "btn-addbtn2" value="Remove topic" onclick="delButton()"/>
+			    <input type="button" id = "btn-addbtn2" value="Remove topic" onclick="delTopic()"/>
 	        </div>
 		</div>
     </body>
@@ -91,10 +91,25 @@
 				localStorage.setItem("topics", JSON.stringify(topics));
 				addButton(topic);
 			}
-			function delButton()
+			function delTopic() 
 			{
-				document.getElementById('txt-sport').remove();
+			    
+				var topic = $("#txt-sport").val().trim();
+				if (topic === "") 
+				{
+				    return;
+				}
+				$("#txt-sport").val("");
+				
+				
+				delButton(topic);
 			}
+			function delButton(topic)
+			{
+				console.log(topic);
+			}
+		
+			
 
     </script>
 </html>
