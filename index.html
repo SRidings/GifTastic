@@ -108,12 +108,7 @@
 			{
 				
 			
-				$("#topics li:eq(" + index + ")").remove();
-            				if (topics.length <= 0)
-					{
-               					 $("#topics").hide('fast');
-            		
-					}
+				topics.removeAttribute(topic);
 				console.log(topic);
 				console.log(topics);
 			}
