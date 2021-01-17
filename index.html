@@ -91,10 +91,11 @@
 				localStorage.setItem("topics", JSON.stringify(topics));
 				addButton(topic);
 			}
-			function delButton()
+			function delButton(topic)
 			{
-				var topic = $("#txt-sport").val().trim();
-				topic.parentNode.removeChild(topic);
+				var parent = topic.parentElement;
+  				parent.parentElement.removeChild(parent);
+			
 			}
 
     </script>
