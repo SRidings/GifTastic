@@ -93,8 +93,10 @@
 			}
 			function delButton()
 			{
-				var myobj = document.getElementById("txt-sport");
-  				myobj.remove();
+				$(".txt-sport").click(function(event) {
+             			$(this).parents('.row').remove();
+               			return false; 
+           			 });
 			}
 
     </script>
