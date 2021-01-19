@@ -108,20 +108,8 @@
 			{
 				
 				console.log(topic);
-				console.log(topics);
-				var x = document.getElementById(topic);
-	
-				for (x=0; x< topics.length - 1;x++)
-				{
-					if (x == topic)
-					{
-						topics.slice(topic);
-					}
-				}
-				topic.parentNode.removeChild(topic)
-				
-				console.log(topic);
-				console.log(topics);
+				topics = topics.filter(function(e) { return e !== topic })
+
 			}
 		
 			
