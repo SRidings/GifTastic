@@ -111,7 +111,7 @@
 					delButton(topics[x]);
 					console.log(topics[x]);
 				}
-		
+				
 				console.log(topics);
 			}
 			function delButton(topic)
@@ -120,6 +120,7 @@
 				console.log(topics);
 				
  				document.getElementById(topic).remove();
+				const newArr = topics.filter(e => e !== topic);
 				
 				console.log(topic);
 				console.log(topics);
