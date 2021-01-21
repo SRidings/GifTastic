@@ -46,12 +46,12 @@
 			  
 		   
 			    var btn = $('<input type="button" id = 't' class="button" value="' + topic + '"/>');
-				for (x = t; topics.length(); x++)
-			   	{
+// 				for (x = t; topics.length(); x++)
+// 			   	{
 				   
-				   t++;
+// 				   t++;
 				   
-			  	 }
+// 			  	 }
 				btn.click(function() 
 				{
 				
@@ -121,7 +121,7 @@
 				
 				console.log(topic);
 				console.log(topics);
-				document.getElementById('t').remove();
+// 				document.getElementById('t').remove();
 				topics = topics.filter(function(e) { return e !== topic })
 				
 				console.log(topics);
