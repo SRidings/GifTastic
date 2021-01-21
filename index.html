@@ -118,9 +118,9 @@
 			{
 				console.log(topic);
 				console.log(topics);
-				
+				topics.filter(e => e !== topic);
  				document.getElementById(topic).remove();
-				const newArr = topics.filter(e => e !== topic);
+				
 				
 				console.log(topic);
 				console.log(topics);
