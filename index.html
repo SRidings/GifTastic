@@ -23,7 +23,7 @@
 		    
 		    var limit = 10;           
 			var topics = ["football", "baseball", "soccer", "chess", "checkers"];
- 			var topic2 = "";
+ 			
 
 			var retrievedTopicsFromLocalStorage = JSON.parse(localStorage.getItem("topics"));
 			
@@ -42,8 +42,16 @@
 			function addButton(topic) 
 			{
 			   
+			   
+			  
 		   
-			    var btn = $('<input type="button" class="button" value="' + topic + '"/>');
+			    var btn = $('<input type="button" id = 't' class="button" value="' + topic + '"/>');
+				for (x = t; topics.length(); x++)
+			   	{
+				   
+				   t++;
+				   
+			  	 }
 				btn.click(function() 
 				{
 				
@@ -113,7 +121,7 @@
 				
 				console.log(topic);
 				console.log(topics);
-				document.getElementById('' + topic + '').remove();
+				document.getElementById('t').remove();
 				topics = topics.filter(function(e) { return e !== topic })
 				
 				console.log(topics);
