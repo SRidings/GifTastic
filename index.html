@@ -101,6 +101,7 @@
 				    return;
 				}
 				$("#txt-sport").val("");
+				localStorage.removeItem("topics", JSON.stringify(topics));
 				delButton(topic);
 			}
 			function delAllTopics()
