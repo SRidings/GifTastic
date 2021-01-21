@@ -38,15 +38,7 @@
 			    addButton(topic);               
 			});
 			
-// 			var t = 0;
-// 		        var z = 3;
-// 			for (x = z; x < topics.length(); x++)
-// 			{
-// 				t = x;
-// 				z++;
-				
-// 			}
-			
+		
 			function addButton(topic) 
 			{
 			   
@@ -134,8 +126,8 @@
 				console.log(topics);
 				
  				document.getElementById(topic).remove();
-				topics = topics.filter(function(e) { return e !== topic })
-				localStorage.removeItem("topics", JSON.stringify(topics)); 				
+// 				topics = topics.filter(function(e) { return e !== topic })
+// 				localStorage.removeItem("topics", JSON.stringify(topics)); 				
 				
 				console.log(topics);
 
