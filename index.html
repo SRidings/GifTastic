@@ -110,8 +110,7 @@
 				console.log(topic);
 				console.log(topics);
 	
-				var element = document.getElementById(' + topic + ');
-    				element.parentNode.removeChild(element);
+				document.getElementById("' + topic + '").remove();
 			
 				topics = topics.filter(function(e) { return e !== topic })
 				
