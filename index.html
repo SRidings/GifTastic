@@ -111,11 +111,15 @@
 			}
 			function delAllTopics()
 			{
+				console.log(topic);
+				console.log(topics);
 				for (x = 0; x < topics.length - 1; x++)
 				{
 					delButton(topics[x]);
 					console.log(topics[x]);
 				}
+				console.log(topic);
+				console.log(topics);
 			}
 			function delButton(topic)
 			{
@@ -123,10 +127,12 @@
 				console.log(topics);
 				
  				document.getElementById(topic).remove();
-
+				
+				console.log(topic);
+				console.log(topics);
 								
 				
-				console.log(topics);
+			
 			}
 		
 			
