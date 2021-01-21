@@ -38,13 +38,17 @@
 			    addButton(topic);               
 			});
 			
-		
+// 			var t = 0;
+// 		        var z = 3;
+// 			for (x = z; x < topics.length(); x++)
+// 			{
+// 				t = x;
+// 				z++;
+				
+// 			}
+			
 			function addButton(topic) 
 			{
-			   
-			   
-			  
-		   	
 			    var btn = $('<input type="button" class="button" id = "' + topic + '" value="' + topic + '"/>');
 
 				btn.click(function() 
@@ -80,13 +84,10 @@
                         });											                           						
 					});
 				});
-				$("#buttons-div").append(btn);
-				
+				$("#buttons-div").append(btn);	
 			}
-			
 			function addTopic() 
 			{
-			    
 				var topic = $("#txt-sport").val().trim();
 				topic2 = $("#txt-sport").val().trim();
 				if (topic === "") 
@@ -99,8 +100,7 @@
 				addButton(topic);
 			}
 			function delTopic() 
-			{
-			    
+			{   
 				var topic = $("#txt-sport").val().trim();
 				if (topic === "") 
 				{
@@ -108,29 +108,24 @@
 				}
 				$("#txt-sport").val("");
 				delButton(topic);
-				
-				
 			}
 			function delAllTopics()
 			{
-				for (x = 0; x < topics.length - 1; x++)
+				for (x = 0; x < topics.length; x++)
 				{
 					delButton(topics[x]);
 				}
-				
 			}
 			function delButton(topic)
 			{
-				
 				console.log(topic);
 				console.log(topics);
 				
  				document.getElementById(topic).remove();
-// 				topics = topics.filter(function(e) { return e !== topic })
-// 				localStorage.removeItem("topics", JSON.stringify(topics)); 				
+				topics = topics.filter(function(e) { return e !== topic })
+				localStorage.removeItem("topics", JSON.stringify(topics)); 				
 				
 				console.log(topics);
-
 			}
 		
 			
