@@ -52,7 +52,7 @@
 			   
 			  
 		   	
-			    var btn = $('<input type="button" class="button" id = "z" value="' + topic + '"/>');
+			    var btn = $('<input type="button" class="button" id = "' + topic + '" value="' + topic + '"/>');
 
 				btn.click(function() 
 				{
@@ -123,7 +123,8 @@
 				
 				console.log(topic);
 				console.log(topics);
-// 				document.getElementById('t').remove();
+				
+ 				document.getElementById('t').remove();
 				topics = topics.filter(function(e) { return e !== topic })
 				
 				console.log(topics);
