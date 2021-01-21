@@ -94,15 +94,15 @@
 			function delTopic() 
 			{
 			    
-				var topic = $("#txt-sport").val().trim();
-				if (topic === "") 
-				{
-				    return;
-				}
-				$("#txt-sport").val("");
+				$("#txt-sport").val().trim().remove();
+// 				if (topic === "") 
+// 				{
+// 				    return;
+// 				}
+// 				$("#txt-sport").val("");
 				
 				
-				delButton(topic);
+// 				delButton(topic);
 			}
 			function delButton(topic)
 			{
