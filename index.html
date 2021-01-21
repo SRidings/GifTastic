@@ -23,7 +23,7 @@
 		    
 		    var limit = 10;           
 			var topics = ["football", "baseball", "soccer", "chess", "checkers"];
-// 			var topic2 = "";
+ 			var topic2 = "";
 
 			var retrievedTopicsFromLocalStorage = JSON.parse(localStorage.getItem("topics"));
 			
@@ -41,13 +41,7 @@
 			
 			function addButton(topic) 
 			{
-			    var buttonNum = 0;
-			    var t = 4
-			    for (x = t; x < topics.(); x++)
-			    {
-				    buttonNum = x;
-				    t++;
-			    }
+			   
 		   
 			    var btn = $('<input type="button" class="button" value="' + topic + '"/>');
 				btn.click(function() 
@@ -91,7 +85,7 @@
 			{
 			    
 				var topic = $("#txt-sport").val().trim();
-				topic2 = $("#txt-sport").val().trim();
+				var topic2 = $("#txt-sport").val().trim();
 				if (topic === "") 
 				{
 				    return;
