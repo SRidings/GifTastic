@@ -101,7 +101,7 @@
 				    return;
 				}
 				$("#txt-sport").val("");
-				localStorage.removeItem("topics", JSON.stringify(topics));
+// 				localStorage.removeItem("topics", JSON.stringify(topics));
 				delButton(topic);
 			}
 			function delAllTopics()
@@ -111,7 +111,8 @@
 					delButton(topics[x]);
 					console.log(topics[x]);
 				}
-				
+				topics = topics.filter(e => e !== topic);
+ 				document.getElementById(topic).remove();
 				console.log(topics);
 			}
 			function delButton(topic)
@@ -120,11 +121,8 @@
 				console.log(topics);
 				topics = topics.filter(e => e !== topic);
  				document.getElementById(topic).remove();
-				
-				
 				console.log(topic);
-				console.log(topics);
-								
+				console.log(topics);			
 			}
 		
 			
