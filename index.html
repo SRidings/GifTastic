@@ -48,12 +48,12 @@
 			{
 			    var btn = $('<input type="button" class="button" id = "' + topic + '" value="' + topic + '"/>');
 
-				btn.click(function() 
+				btn.click(function()) 
 				{
 				
 					$("#icons-div").children().detach();
 				
-					var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV
+					var abc = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV
 						   =" + limit, function(data,status,xhr);{
 // 							xhr.each(data, );{		
 							
