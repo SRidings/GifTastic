@@ -51,11 +51,11 @@
 				btn.click(function() 
 				{
 				
-				$("#icons-div").children().detach();
+					$("#icons-div").children().detach();
 				
-				var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV
+					var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV
 						   =" + limit);
-					xhr.done(function(data) {
+						xhr.done(function(data) {
 					
                        			 $.each(data.data, function(i, res) 
                        			 {
@@ -79,7 +79,7 @@
 							
 							div.append(icon);
 							$("#icons-div").append(div);
-                        });											                           						
+                        		    });											                           						
 					});
 				});
 				$("#buttons-div").append(btn);	
