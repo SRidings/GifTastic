@@ -54,8 +54,8 @@
 				$("#icons-div").children().detach();
 				
 				var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV
-						   =" + limit);{
-					//xhr.done(function(data) {
+						   =" + limit);
+					xhr.done(function(data) {
 					
                         $.each(data.data, function(i, res) 
                         {
@@ -93,7 +93,7 @@
 				}
 				$("#txt-sport").val("");
 				topics.push(topic);
-				localStorage.setItem("topics", JSON.stringify(topics));
+				// localStorage.setItem("topics", JSON.stringify(topics));
 				console.log(localStorage.setItem("topics", JSON.stringify(topics)));
 				addButton(topic);
 			}
