@@ -55,10 +55,10 @@
 				
 				var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV
 						   =" + limit);
-					xhr.done(function(data) }
+					xhr.done(function(data) {
 					
-                        $.each(data.data, function(i, res) 
-                        {
+                       			 $.each(data.data, function(i, res) 
+                       			 {
 						
 						    var div = $('<div class="img-header"><h4>Rating: ' + res.rating + '</h4></div>');
 						    var icon = $('<img src="' + res.images.fixed_height_still.url + '" alt="icon" />');
@@ -93,8 +93,8 @@
 				}
 				$("#txt-sport").val("");
 				topics.push(topic);
-//				 localStorage.setItem("topics", JSON.stringify(topics));
-				// console.log(localStorage.setItem("topics", JSON.stringify(topics)));
+//				localStorage.setItem("topics", JSON.stringify(topics));
+//                              console.log(localStorage.setItem("topics", JSON.stringify(topics)));
 				addButton(topic);
 			}
 			function delTopic() 
