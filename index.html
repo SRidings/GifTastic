@@ -23,7 +23,7 @@
 	<script>
 		    
 		    var limit = 20;           
-	            var topics = [''];
+	            var topics = newArray();
 		    
  			
 
@@ -54,14 +54,19 @@
 					$("#icons-div").children().detach();
 				
 					var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV
-						   =" + limit); {
+						   =" + limit, function(data,status,xhr);
+							{		
+							
+
+
+});
 					
                        			 $.each(data.data, function(i, res) 
                        			 {
 						
 						    var div = $('<div class="img-header"><h4>Rating: ' + res.rating + '</h4></div>');
 						    var icon = $('<img src="' + res.images.fixed_height_still.url + '" alt="icon" />');
-							var gif = $('<img src="' + res.images.fixed_height.url + '" alt="icon" />');														
+						    var gif = $('<img src="' + res.images.fixed_height.url + '" alt="icon" />');														
 							
 							icon.click(function() 
 							{
@@ -128,8 +133,5 @@
 				console.log(topic);
 				console.log(topics);			
 			}
-		
-			
-
     </script>
 </html>
