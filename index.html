@@ -55,7 +55,7 @@
 				
 					var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV
 						   =" + limit, function(data,status,xhr);
-							{		
+							xhr.each(data, function(i, res);{		
 							
 
 
