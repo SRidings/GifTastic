@@ -23,10 +23,14 @@
 	<script>
 		    
 		    var limit = 20;           
-	            var topics = ["checker","chess","baseball"];
+	            // var topics = [''];
+		    var topics = new Array();
  			
 
 			var retrievedTopicsFromLocalStorage = JSON.parse(localStorage.getItem("topics"));
+		
+			console.log(topic);
+			console.log(topics);
 			
 			if (retrievedTopicsFromLocalStorage !== null) 
 			{ 
@@ -48,8 +52,9 @@
 				{
 				
 				$("#icons-div").children().detach();
-
-				    var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV" + limit);
+				
+				var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV
+						   =" + limit);
 					xhr.done(function(data) {
 					
                         $.each(data.data, function(i, res) 
@@ -100,6 +105,7 @@
 				    return;
 				}
 				$("#txt-sport").val("");
+				localStorage.removeItem("topics", JSON.stringify(topics));
 // 				localStorage.removeItem("topics", JSON.stringify(topics));
 				delButton(topic);
 			}
