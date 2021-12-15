@@ -15,29 +15,14 @@
 			    <label for="txt-sport">Add sport</label><br><br>
 			    <input type="text" id="txt-sport" value="" size="45"/><br><br>
 			    <input type="button" id = "btn-addbtn" value="Submit" onclick="addTopic()"/>
-			    <input type="button" id = "btn-addbtn2" value="Remove topic" onclick="delTopic()"/>
-			    <input type="button" id = "btn-addbtn2" value="Delete all topics" onclick="delAllTopics()"/>
 	        </div>
 		</div>
-      <script>
-      img {border-radius: 50%;}
-      </script>
-      <img src="Poweredby_100px-White_VertLogo.png" width=69; height=69;>
-     
-    </div>
-  </header>
     </body>
 	<script>
-		    
-		    var limit = 20;           
-	            var topics = newArray();
-		    
- 			
+		    var limit = 10;           
+			var topics = ["football", "baseball", "soccer", "chess", "checkers"];
 
 			var retrievedTopicsFromLocalStorage = JSON.parse(localStorage.getItem("topics"));
-		
-			console.log(topic);
-			console.log(topics);
 			
 			if (retrievedTopicsFromLocalStorage !== null) 
 			{ 
@@ -49,34 +34,29 @@
 			    addButton(topic);               
 			});
 			
-
-			
 			function addButton(topic) 
 			{
-			    var btn = $('<input type="button" class="button" id = "' + topic + '" value="' + topic + '"/>');
-
-				btn.click(function()) 
+			
+			    var btn = $('<input type="button" class="button" value="' + topic + '"/>');
+				
+				btn.click(function() 
 				{
 				
-					$("#icons-div").children().detach();
-				
-					var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=CGKaic4OxThebDsxrm9ZpHJ7JXaTmzSR&limit="
-						   + limit);
-							xhr.done(function(data) {		
-						
+				$("#icons-div").children().detach();
 
-
-
+				    var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=U2nwfhik776yDSK5kWqAXvWRs9gIdNdV&limit=" + limit);
+					xhr.done(function(data) {
 					
-                       			 $.each(data.data, function(i, res) 
-                       			 {
+                        $.each(data.data, function(i, res) 
+                        {
 						
 						    var div = $('<div class="img-header"><h4>Rating: ' + res.rating + '</h4></div>');
 						    var icon = $('<img src="' + res.images.fixed_height_still.url + '" alt="icon" />');
-						    var gif = $('<img src="' + res.images.fixed_height.url + '" alt="icon" />');														
+							var gif = $('<img src="' + res.images.fixed_height.url + '" alt="icon" />');														
 							
 							icon.click(function() 
 							{
+							
 							    div.children().eq(1).detach();
 								div.append(gif);
 							});
@@ -89,13 +69,15 @@
 							
 							div.append(icon);
 							$("#icons-div").append(div);
-                        		    });											                           						
+                        });											                           						
 					});
 				});
-				$("#buttons-div").append(btn);	
+				$("#buttons-div").append(btn);
 			}
+			
 			function addTopic() 
 			{
+			    
 				var topic = $("#txt-sport").val().trim();
 				if (topic === "") 
 				{
@@ -103,41 +85,9 @@
 				}
 				$("#txt-sport").val("");
 				topics.push(topic);
-//				localStorage.setItem("topics", JSON.stringify(topics));
-//                              console.log(localStorage.setItem("topics", JSON.stringify(topics)));
+				localStorage.setItem("topics", JSON.stringify(topics));
 				addButton(topic);
 			}
-			function delTopic() 
-			{   
-				var topic = $("#txt-sport").val().trim();
-				if (topic === "") 
-				{
-				    return;
-				}
-				$("#txt-sport").val("");
-//				localStorage.removeItem("topics", JSON.stringify(topics));
-// 				localStorage.removeItem("topics", JSON.stringify(topics));
-				delButton(topic);
-			}
-			function delAllTopics()
-			{
-				for (x = 0; x < topics.length - 1; x++)
-				{
-					delButton(topics[x]);
-					console.log(topics[x]);
-				}
-				topics = topics.filter(e => e !== topic);
- 				document.getElementById(topic).remove();
-				console.log(topics);
-			}
-			function delButton(topic)
-			{
-				console.log(topic);
-				console.log(topics);
-				topics = topics.filter(e => e !== topic);
- 				document.getElementById(topic).remove();
-				console.log(topic);
-				console.log(topics);			
-			}
+
     </script>
 </html>
