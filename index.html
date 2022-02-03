@@ -18,8 +18,7 @@
 	        </div>
 		</div>
 	    
-	    <img src = "Poweredby_100px-White_VertLogo.png" height=69 length=69>
-	    <h2>Powered by giephy application! Thanks for coming to my website!</h2>
+
     </body>
 	<script>
 		 
@@ -49,8 +48,9 @@
 				$("#icons-div").children().detach();
 
 				    var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dJDWC9ZhQK06RW5NQ6XDg6soYMDoph5s&limit=" + limit);
-					xhr.done(function(data) {
-					
+					xhr.done(function(data) 
+				}
+			}
                         $.each(data.data, function(i, res) 
                         {
 						
